@@ -10,10 +10,10 @@ const SCOPES = ['https://www.googleapis.com/auth/spreadsheets.readonly'];
 // created automatically when the authorization flow completes for the first
 // time.
 const TOKEN_PATH = 'token.json';
-const range = 'Data_2020!B2051:R2055';
 let data = null;
 
 // ==================== CONSTANT TO TWEAK ==============================
+const range = 'Data_2020!B2051:R2055'; //Enter your sheet range
 const email = 'abc@gmail.com'; //Enter your email 
 const password = 'password';  //Enter your password
 const name = 'Siddharth C';  //Enter your name as per sheet
