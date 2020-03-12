@@ -2,14 +2,7 @@ const fs = require('fs');
 const readline = require('readline');
 const {google} = require('googleapis');
 const puppeteer = require('puppeteer');
-const moment = require('moment')
-
-const email = 'siddharthc@mitrmedia.com';
-const password = 'siddarji';
-const name = 'Siddharth C';
-const project = 'CA';
-const range = 'Data_2020!B2051:R2055';
-let data = null;
+const moment = require('moment');
 
 // If modifying these scopes, delete token.json.
 const SCOPES = ['https://www.googleapis.com/auth/spreadsheets.readonly'];
@@ -17,6 +10,18 @@ const SCOPES = ['https://www.googleapis.com/auth/spreadsheets.readonly'];
 // created automatically when the authorization flow completes for the first
 // time.
 const TOKEN_PATH = 'token.json';
+const range = 'Data_2020!B2051:R2055';
+let data = null;
+
+// ==================== CONSTANT TO TWEAK ==============================
+const email = 'abc@gmail.com'; //Enter your email 
+const password = 'password';  //Enter your password
+const name = 'Siddharth C';  //Enter your name as per sheet
+const project = 'CA'; // This project will only be automated
+// ==================== CONSTANT TO TWEAK ==============================
+
+
+
 
 // Load client secrets from a local file.
 fs.readFile('credentials.json', (err, content) => {
