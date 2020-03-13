@@ -121,7 +121,7 @@ function listData(auth) {
         await page.goto('http://172.19.10.10:8181/mis/index.php/timesheet')
         for (let i = 0; i < data.length; i++) {
             const currentData = data[i];
-            if(currentData[4]!=='Yes' && currentData[4]!=='Half-Day' || currentData[2]!==name || currentData[5]!==project){
+            if(currentData[4]!=='Yes' && currentData[4]!=='Half-Day' && currentData[4]!=='Weekend + Comp Off'  || currentData[2]!==name || currentData[5]!==project){
                 console.log(`Skip for ${currentData[0]}`)
                 continue;
             }
