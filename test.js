@@ -1,8 +1,8 @@
 const puppeteer = require('puppeteer');
 const moment = require('moment')
 
-const email = 'siddharthc@mitrmedia.com';
-const password = 'siddarji';
+const email = '';    //Enter your email 
+const password = ''; //Enter your password
 const data = [['3/2/2020',
     'Monday',
     'Siddharth C',
