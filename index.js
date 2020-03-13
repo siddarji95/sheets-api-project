@@ -18,6 +18,7 @@ const email = 'abc@gmail.com'; //Enter your email
 const password = 'password';  //Enter your password
 const name = 'Siddharth C';  //Enter your name as per sheet
 const project = 'CA'; // This project will only be automated
+const taskName = 'Development' // Enter task name
 // ==================== CONSTANT TO TWEAK ==============================
 
 
@@ -133,7 +134,7 @@ function listData(auth) {
                 const date = document.querySelector('#datepicker_0');
                 date.value = dateFormat;
             },dateFormat);
-            await page.type('.task_name', 'Development')
+            await page.type('.task_name', taskName)
             await page.type('.task_description', currentData[16])
             await page.select('.users_result', '275')   //Project manager
             await page.select('.project_id', '251')   //Project CA
