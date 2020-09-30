@@ -95,7 +95,7 @@ function listData(auth) {
     if (err) return console.log('The API returned an error: ' + err);
     const rows = res.data.values;
     if (rows.length) {
-      console.log('Name, Major:');
+      console.log('Total length of list:',rows.length);
       console.log(rows);
       data = rows;
 
@@ -127,6 +127,7 @@ function listData(auth) {
                 continue;
             }
             // console.log(currentData)
+            await page.waitFor(4000)
             await page.waitForSelector('body > div > nav > ul > li:nth-child(6) > a')
             const dateFormat = moment(currentData[0]).format('YYYY-MM-DD');
             await page.evaluate((dateFormat) => {
@@ -143,10 +144,10 @@ function listData(auth) {
                 const hours = document.querySelector('.hours');
                 hours.value = '';
             });
-            await page.type('.hours', currentData[14])
+            await page.type('.hours', currentData[13])
             await page.click('.submit_button')
-            await page.waitFor(1000)
             await page.waitForSelector('button.close')
+            await page.waitFor(2000)
             await page.click('button.close')
             console.log(`Data filled for ${currentData[0]}`)
         }
