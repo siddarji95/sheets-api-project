@@ -13,9 +13,9 @@ const TOKEN_PATH = 'token.json';
 let data = null;
 
 // ==================== CONSTANT TO TWEAK ==============================
-const range = 'Data_2020!B2051:R2055'; //Enter your sheet range
-const email = 'abc@gmail.com'; //Enter your email 
-const password = 'password';  //Enter your password
+const range = 'Task_Details!B137:Q147'; //Enter your sheet range
+const email = 'siddharthc@mitrmedia.com'; //Enter your email 
+const password = 'xxx';  //Enter your password
 const name = 'Siddharth C';  //Enter your name as per sheet
 const project = 'CA'; // This project will only be automated
 const taskName = 'Development' // Enter task name
@@ -89,7 +89,7 @@ function getNewToken(oAuth2Client, callback) {
 function listData(auth) {
   const sheets = google.sheets({version: 'v4', auth});
   sheets.spreadsheets.values.get({
-    spreadsheetId: '1ztlHqy_6jXjzRH3RDNvOPy0QBzQFXmaNjGLf3OWrpCc',
+    spreadsheetId: '1LdD3ImL48P9SAuF_7r2QNvqFnZsGxCeGvsxmjiOrBDk',
     range: range,
   }, (err, res) => {
     if (err) return console.log('The API returned an error: ' + err);
@@ -123,7 +123,7 @@ function listData(auth) {
         for (let i = 0; i < data.length; i++) {
             const currentData = data[i];
             if(currentData[4]!=='Yes' && currentData[4]!=='Half-Day' && currentData[4]!=='Weekend + Comp Off'  || currentData[2]!==name || currentData[5]!==project){
-                console.log(`Skip for ${currentData[0]}`)
+                console.log(`Skip for ${currentData[0]}`,currentData[2])
                 continue;
             }
             // console.log(currentData)
@@ -136,15 +136,15 @@ function listData(auth) {
                 date.value = dateFormat;
             },dateFormat);
             await page.type('.task_name', taskName)
-            await page.type('.task_description', currentData[16])
+            await page.type('.task_description', currentData[15])
             await page.select('.users_result', '275')   //Project manager
-            await page.select('.project_id', '251')   //Project CA
+            await page.select('.project_id', '334')   //Project CA
             await page.select('.task_cat', '2')   //Task programming
             await page.evaluate(() => {
                 const hours = document.querySelector('.hours');
                 hours.value = '';
             });
-            await page.type('.hours', currentData[13])
+            await page.type('.hours', currentData[11])
             await page.click('.submit_button')
             await page.waitForSelector('button.close')
             await page.waitFor(2000)
