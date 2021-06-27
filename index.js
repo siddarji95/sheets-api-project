@@ -13,7 +13,7 @@ const TOKEN_PATH = 'token.json';
 let data = null;
 
 // ==================== CONSTANT TO TWEAK ==============================
-const range = 'Task_Details!B137:Q147'; //Enter your sheet range
+const range = 'Task_Details!B1859:P1889'; //Enter your sheet range
 const email = 'siddharthc@mitrmedia.com'; //Enter your email 
 const password = 'xxx';  //Enter your password
 const name = 'Siddharth C';  //Enter your name as per sheet
@@ -136,7 +136,7 @@ function listData(auth) {
                 date.value = dateFormat;
             },dateFormat);
             await page.type('.task_name', taskName)
-            await page.type('.task_description', currentData[15])
+            await page.type('.task_description', currentData[14])
             await page.select('.users_result', '275')   //Project manager
             await page.select('.project_id', '334')   //Project CA
             await page.select('.task_cat', '2')   //Task programming
@@ -144,7 +144,7 @@ function listData(auth) {
                 const hours = document.querySelector('.hours');
                 hours.value = '';
             });
-            await page.type('.hours', currentData[11])
+            await page.type('.hours', currentData[10])
             await page.click('.submit_button')
             await page.waitForSelector('button.close')
             await page.waitFor(2000)
